@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include "boat.h"
 #define BOARD_SIZE 11
 using namespace std;
 

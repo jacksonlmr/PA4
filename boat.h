@@ -11,31 +11,32 @@ class Boat{
     int size, hitCount;
     bool isHorizontal, isDestroyed, isHit;
     int** occupiedIndex;
-    int index[];
+    int startIndex[2];
 
     public:
-    Boat();
-    Boat(string, int, int, bool, bool, bool, int[], int**);
-    Boat(const Boat&);
+        Boat();
+        Boat(string, int, int, bool, bool, bool);
+        Boat(const Boat&);
 
-    string getName();
-    void setName(string);
-    int getSize();
-    void setSize(int);
-    bool getisHorizontal();
-    void setisHorizontal(bool);
-    bool getisDestroyed();
-    void setisDestroyed(bool);
-    bool getisHit();
-    void getisHit(bool);
-    int* getIndex();
-    void setIndex(int[]);
-    int** getOccupiedIndex();
-    void setOccupiedIndex(int**);
-    bool shipSank();
-    friend ostream& operator<<(ostream&, const Boat&);
-    //void destroyBlock();
-                          
+        string getName();
+        void setName(string);
+        int getSize();
+        void setSize(int);
+        bool getisHorizontal();
+        void setisHorizontal(bool);
+        bool getisDestroyed();
+        void setisDestroyed(bool);
+        bool getisHit();
+        void getisHit(bool);
+        int* getIndex();
+        void setStartIndex(int[]);
+        int** getOccupiedIndex();
+        void setOccupiedIndex();
+        bool shipSank();
+        Boat& operator=(const Boat& rhs);
+        friend ostream& operator<<(ostream&, const Boat&);
+        //void destroyBlock();
+                            
 
 };
 #endif

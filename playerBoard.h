@@ -3,17 +3,20 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
-#include <opponentBoard.h>
+#include "opponentBoard.h"
 #define BOARD_SIZE 11
 #define BOAT_CHARACTER 'n'
 using namespace std;
 
 class playerBoard: public opponentBoard{
-    int numBoats;
+    int numBoats, maxNumBoats;
     Boat* boatsOnBoard;
 
     public:
-        playerBoard(): opponentBoard(){}
+        playerBoard(): opponentBoard(){
+            maxNumBoats = 3;
+            boatsOnBoard = new Boat[maxNumBoats];
+        }
 
         playerBoard(int n, Boat* b, char board[][11]): opponentBoard(board){
             
@@ -22,7 +25,7 @@ class playerBoard: public opponentBoard{
         playerBoard(const playerBoard&){
 
         }
-
+/*
         Boat* getBoatsOnBoard(){
 
         }
@@ -30,7 +33,7 @@ class playerBoard: public opponentBoard{
         int getNumBoats(){
 
         }
-
+*/
         bool virtual indexAvailable(Boat b, int idx[]){
             bool returnValue = true, horizontal = b.getisHorizontal();
             int rowIndex = idx[0];
@@ -70,15 +73,16 @@ class playerBoard: public opponentBoard{
         }
 
         //returns true if boat was added succesfully, false it index was invalid
-        void addBoat(Boat b, int idx[], bool h){
+        bool addBoat(Boat b, int idx[]){
             bool checkIndex = indexAvailable(b, idx), returnValue = false;
             int startR = idx[0], startC = idx[1];
+            b.setStartIndex(idx);
+            b.setOccupiedIndex();
             //add boat, if the index is available
             if (checkIndex == true){
-                boatsOnBoard[numBoats] = b;
-                numBoats++;
+                addBoatToArray(b);
                 //add boat horizontally
-                if (b.getisHorizontal() = true){
+                if (b.getisHorizontal() == true){
                     for (int i = 0; i < b.getSize(); i++){
                         boardArray[startR+i][startC] = BOAT_CHARACTER;
                     }
@@ -93,6 +97,25 @@ class playerBoard: public opponentBoard{
                 returnValue = true;
             }
             return returnValue;
+        }
+
+        void addBoatToArray(Boat b){
+            if (maxNumBoats == numBoats){
+                maxNumBoats += 3;
+                Boat* temp = new Boat[maxNumBoats];
+                for (int i = 0; i < numBoats; i++){
+                    boatsOnBoard[i] = temp[i];
+                }
+                delete [] boatsOnBoard;
+                boatsOnBoard = temp;
+                boatsOnBoard[numBoats] = b;
+                numBoats++;
+            }
+
+            else {
+                boatsOnBoard[numBoats] = b;
+                numBoats++;
+            }
         }
 
         void populateBoard(){

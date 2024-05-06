@@ -1,35 +1,34 @@
 #include "boat.h"
 
+//default initializes a boat of size 3, that is vertical
 Boat::Boat(){
-name = "NA";
-size = 0;
-hitCount = 0;
-isHorizontal = false;
-isDestroyed = false;
-isHit = false;
-occupiedIndex = 0;
+    name = "NA";
+    size = 3;
+    hitCount = 0;
+    isHorizontal = false;
+    isDestroyed = false;
+    isHit = false;
 }
-Boat::Boat(string n , int s, int hc, bool isHor, bool isD, bool isH, int j[], int** oi){
-name = n;
-size = s;
-isHorizontal = isHor;
-isDestroyed = isD;
-isHit = isH;
-for (int i = 0; i < 2; i++){
-    index[i] = j[i];
+//
+Boat::Boat(string n , int s, int hc, bool isHor, bool isD, bool isH){
+    name = n;
+    size = s;
+    isHorizontal = isHor;
+    isDestroyed = isD;
+    isHit = isH;
+    hitCount = hc;
 }
-occupiedIndex = oi;
-}
+
 Boat::Boat(const Boat& rhs){
-name = rhs.name;
-size = rhs.size;
-isHorizontal = rhs.isHorizontal;
-isDestroyed = rhs.isDestroyed;
-isHit = rhs.isHit;
-for(int i = 0; i < 2; i++){
-    index[i] = rhs.index[i];
-}
-occupiedIndex = rhs.occupiedIndex;
+    name = rhs.name;
+    size = rhs.size;
+    isHorizontal = rhs.isHorizontal;
+    isDestroyed = rhs.isDestroyed;
+    isHit = rhs.isHit;
+    for(int i = 0; i < 2; i++){
+        startIndex[i] = rhs.startIndex[i];
+    }
+    occupiedIndex = rhs.occupiedIndex;
 }
 
 string Boat::getName(){
@@ -63,18 +62,26 @@ void Boat::getisHit(bool h){
     isHit = h;
 }
 int* Boat::getIndex(){
-    return index;
+    return startIndex;
 }
-void Boat::setIndex(int j[]){
+void Boat::setStartIndex(int j[]){
     for(int i = 0; i < 2; i++){
-        index[i] = j[i];
+        startIndex[i] = j[i];
     }
 }
 int** Boat::getOccupiedIndex(){
     return occupiedIndex;
 }
-void Boat::setOccupiedIndex(int** i){
-    occupiedIndex = i;
+void Boat::setOccupiedIndex(){
+    if (isHorizontal == true){
+        //if boat is horizontal, add i to the column value of the index and add to occupiedIndex until size is reached
+        for (int i = 0; i < size; i++){
+            int* nextIndex = new int[2];
+            nextIndex[0] = startIndex[0];
+            nextIndex[1] = startIndex[1] + i;
+            occupiedIndex[i] = nextIndex;
+        }
+    }
 }
 bool Boat::shipSank(){
     if(size == hitCount){
@@ -84,6 +91,19 @@ bool Boat::shipSank(){
         isDestroyed = false;
     }
     return isDestroyed;
+}
+
+Boat& Boat::operator=(const Boat& rhs){
+    name = rhs.name;
+    size = rhs.size;
+    isHorizontal = rhs.isHorizontal;
+    isDestroyed = rhs.isDestroyed;
+    isHit = rhs.isHit;
+    for(int i = 0; i < 2; i++){
+        startIndex[i] = rhs.startIndex[i];
+    }
+    occupiedIndex = rhs.occupiedIndex;
+    return *this;
 }
 //ostream& Boat::operator<<(ostream& os, const Boat& b){
 //
