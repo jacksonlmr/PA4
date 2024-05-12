@@ -17,6 +17,7 @@ class Boat{
         Boat();
         Boat(string, int, int, bool, bool, bool);
         Boat(const Boat&);
+        ~Boat();
 
         string getName();
         void setName(string);
@@ -27,7 +28,7 @@ class Boat{
         bool getisDestroyed();
         void setisDestroyed(bool);
         bool getisHit();
-        void getisHit(bool);
+        void setisHit(bool);
         int* getIndex();
         void setStartIndex(int[]);
         int** getOccupiedIndex();

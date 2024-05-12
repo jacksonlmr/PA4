@@ -14,26 +14,39 @@ class playerBoard: public opponentBoard{
 
     public:
         playerBoard(): opponentBoard(){
+            numBoats = 0;
             maxNumBoats = 3;
             boatsOnBoard = new Boat[maxNumBoats];
         }
 
-        playerBoard(int n, Boat* b, char board[][11]): opponentBoard(board){
+        playerBoard(int n, int m, Boat* b, char board[][11]): opponentBoard(board){
+            numBoats = n; 
+            maxNumBoats = m;
             
+            boatsOnBoard = new Boat[maxNumBoats];
+            for (int i = 0; i < numBoats; i++){
+                boatsOnBoard[i] = b[i];
+            }
         }
 
-        playerBoard(const playerBoard&){
-
+        playerBoard(const playerBoard& rhs): opponentBoard(rhs){
+            numBoats = rhs.numBoats;
+            maxNumBoats = rhs.maxNumBoats;
+            
+            boatsOnBoard = new Boat[maxNumBoats];
+            for (int i = 0; i < numBoats; i++){
+                boatsOnBoard[i] = rhs.boatsOnBoard[i];
+            }
         }
-/*
+
         Boat* getBoatsOnBoard(){
-
+            return boatsOnBoard;
         }
 
         int getNumBoats(){
-
+            return numBoats;
         }
-*/
+
         bool virtual indexAvailable(Boat b, int idx[]){
             bool returnValue = true, horizontal = b.getisHorizontal();
             int rowIndex = idx[0];
@@ -122,6 +135,22 @@ class playerBoard: public opponentBoard{
 
         }
 
+        playerBoard& operator =(const playerBoard& rhs){
+            for (int i = 0; i < BOARD_SIZE; i++){
+                for (int j = 0; j < BOARD_SIZE; j++){
+                    boardArray[i][j] = rhs.boardArray[i][j];
+                }
+            }
+
+            numBoats = rhs.numBoats;
+            maxNumBoats = rhs.maxNumBoats;
+            
+            boatsOnBoard = new Boat[maxNumBoats];
+            for (int i = 0; i < numBoats; i++){
+                boatsOnBoard[i] = rhs.boatsOnBoard[i];
+            }
+            return *this;
+        }
 };
 
 #endif
