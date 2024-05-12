@@ -8,9 +8,8 @@ AI::AI(int** i, playerBoard* p, opponentBoard* o): Player(p, o){
     usedIndex = i;
 }
 
-AI::AI(const AI& rhs): AI(rhs){
+AI::AI(const AI& rhs){
     usedIndex = rhs.usedIndex;
-
 }
 
 int** AI::getusedIndex(){
@@ -26,7 +25,7 @@ void AI::takeTurn(){
 }
 
 int* AI::generateIndex(){
-
+    return 0;
 }
 
 void AI::generatePlayerBoard(){
@@ -39,5 +38,6 @@ void AI::generatePlayerBoard(){
  * @return Boat* array of boats
 */
 Boat* AI::generateBoatArray(){
-
+    Boat* boat = new Boat;
+    return boat;
 }

@@ -14,7 +14,7 @@ int** usedIndex;
 
     void setusedIndex(int** u);
 
-    void takeTurn();
+    void virtual takeTurn();
     int* generateIndex();
     void generatePlayerBoard();
     Boat* generateBoatArray();

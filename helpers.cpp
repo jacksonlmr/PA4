@@ -22,28 +22,39 @@ string getInput(){
 
 /**
  * @brief Gets the users input for a location to attack in format <A1> and converts to usable indices in format <[0, 0]>
- * @param None
+ * @param string input, string in format <A1>
+ * @param int* array of length two for the final index
  * @return int array of length two representing an index on the board
 */
-int* convertInput(string){
+int* convertInput(string input, int* idx){
+    int idx1, idx2;
 
+    idx1 = input[0] - 'A' + 1;
+    idx2 = input[1];
+
+    idx[0] = idx1;
+    idx[1] = idx2;
+
+    return idx;
 }
 
-/**
- * @brief Checks if input from user is a valid index
- * @param int* pointer to array of length two representing an index
- * @return bool, true if input is valid, false if it is not
-*/
-bool checkInput(int*){
-
-}
 /**
  * @brief adds the neccesary boats to the array
  * @param Boat* pointer to array of boats
  * @return void
 */
-void generateBoatArray(Boat*){
+void generateBoatArray(Boat** boats){
+    Boat* b1 = new Boat("Carrier", 5);
+    Boat* b2 = new Boat("Battleship", 4);
+    Boat* b3 = new Boat("Destroyer", 3);
+    Boat* b4 = new Boat("Submarine", 3);
+    Boat* b5 = new Boat("Patrol Boat", 2);
 
+    boats[0] = b1;
+    boats[1] = b2;
+    boats[2] = b3;
+    boats[3] = b4;
+    boats[4] = b5;
 }
 
 /**
@@ -52,7 +63,7 @@ void generateBoatArray(Boat*){
  * @return int, 1 means human goes first, 0 means ai goes first
 */
 int chooseStartingPlayer(){
-
+    return 0;
 }
 /**
  * @brief Returns true if all of either player's ships have been destroyed, false otherwise
@@ -60,7 +71,7 @@ int chooseStartingPlayer(){
  * @return bool, true if both players have at least one ship left, false if at least one player had 0 ships left
 */
 bool gameFinished(){
-
+    return false;
 }
 
 /**

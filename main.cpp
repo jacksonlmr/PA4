@@ -1,20 +1,21 @@
 #include "opponentBoard.h"
 #include "playerBoard.h"
 #include "boat.h"
+#include "player.h"
+#include "human.h"
+//#include "ai.h"
 #include <stdio.h>
 
 using namespace std;
 
 int main (){
-    playerBoard test;
+    Human human = Human();
 
-    Boat testBoat;
+    human.createPlayerBoard();
 
-    int idx[2] = {1, 1};
+    playerBoard* testBoard = human.getPlayerBoard();
 
-    bool testBool = test.addBoat(testBoat, idx);
-
-    cout << test;
+    cout << testBoard;
 
     return 0;
 }

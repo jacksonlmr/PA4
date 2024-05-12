@@ -14,13 +14,9 @@ Boat::Boat(){
     }
 }
 //
-Boat::Boat(string n , int s, int hc, bool isHor, bool isD, bool isH){
+Boat::Boat(string n , int s){
     name = n;
     size = s;
-    isHorizontal = isHor;
-    isDestroyed = isD;
-    isHit = isH;
-    hitCount = hc;
 }
 
 Boat::Boat(const Boat& rhs){
@@ -146,6 +142,7 @@ Boat& Boat::operator=(const Boat& rhs){
 ostream& operator<<(ostream& os, const Boat& b){
     os << "Name: " << b.name << endl;
     os << "Size: " << b.size << endl;
+    return os;
 }
 /*
  void Boat::destroyBlock(){

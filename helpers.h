@@ -8,9 +8,8 @@ using namespace std;
 
 void playGame();
 string getInput();
-int* convertInput(string);
-bool checkInput(int*);
-void generateBoatArray(Boat*);
+int* convertInput(string, int*);
+void generateBoatArray(Boat**);
 int chooseStartingPlayer();
 bool gameFinished();
 template <typename T>

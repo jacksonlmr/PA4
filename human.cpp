@@ -29,7 +29,7 @@ void Human::setName(string n){
  * @return void
 */
 void Human::createPlayerBoard(){
-    Boat* boats = new Boat[NUM_BOATS];
+    Boat** boats = new Boat*[NUM_BOATS];
     int* processedIndex;
     string rawIndex, orientation;
     bool validInput;
@@ -47,14 +47,14 @@ void Human::createPlayerBoard(){
             orientation = getInput();
             
             if (orientation == "h"){
-                boats[i].setisHorizontal(true);
+                boats[i]->setisHorizontal(true);
             }
 
             else{
-                boats[i].setisHorizontal(false);
+                boats[i]->setisHorizontal(false);
             }
 
-            processedIndex = convertInput(rawIndex);
+            convertInput(rawIndex, processedIndex);
             validInput = pBoard->indexAvailable(boats[i], processedIndex);
 
             if(validInput == false){
@@ -62,14 +62,19 @@ void Human::createPlayerBoard(){
             }
 
             else{
-                boats[i].setStartIndex(processedIndex);
+                boats[i]->setStartIndex(processedIndex);
                 pBoard->addBoatToArray(boats[i]);
             }
 
         }while(validInput == false);
     }
 }
-
+/**
+ * @brief Gets input from player of an index to attack on opponents board, and marks the location on both
+ * the human players opponentBoard, and the opponents playerBoard
+ * @param None
+ * @return void
+*/
 void Human::takeTurn(){
-
+    cout << "take turn";
 }

@@ -15,7 +15,7 @@ class Boat{
 
     public:
         Boat();
-        Boat(string, int, int, bool, bool, bool);
+        Boat(string, int);
         Boat(const Boat&);
         ~Boat();
 

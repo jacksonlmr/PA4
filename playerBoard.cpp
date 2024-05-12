@@ -40,12 +40,12 @@ int playerBoard::getNumBoats(){
  * @param int[] idx, index to check at
  * @return bool, true if index is available false if it is not
 */
-bool playerBoard::indexAvailable(Boat b, int idx[]){
-    bool returnValue = true, horizontal = b.getisHorizontal();
+bool playerBoard::indexAvailable(Boat* b, int idx[]){
+    bool returnValue = true, horizontal = b->getisHorizontal();
     int rowIndex = idx[0];
     int columnIndex = idx[1];
-    int endColumnIndex = columnIndex + b.getSize();
-    int endRowIndex = rowIndex + b.getSize();
+    int endColumnIndex = columnIndex + b->getSize();
+    int endRowIndex = rowIndex + b->getSize();
 
     if (horizontal == true){
         if (endColumnIndex > 9){
@@ -106,10 +106,10 @@ bool playerBoard::addBoat(Boat b, int idx[2]){
     return returnValue;
 }
 
-void playerBoard::addBoatToArray(Boat b){
+void playerBoard::addBoatToArray(Boat* b){
     if (maxNumBoats == numBoats){
         maxNumBoats += 3;
-        Boat* temp = new Boat[maxNumBoats];
+        Boat** temp = new Boat*[maxNumBoats];
         for (int i = 0; i < numBoats; i++){
             boatsOnBoard[i] = temp[i];
         }

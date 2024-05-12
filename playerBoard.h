@@ -10,7 +10,7 @@ using namespace std;
 
 class playerBoard: public opponentBoard{
     int numBoats, maxNumBoats;
-    Boat* boatsOnBoard;
+    Boat** boatsOnBoard;
 
     public:
         playerBoard();
@@ -20,9 +20,9 @@ class playerBoard: public opponentBoard{
         Boat* getBoatsOnBoard();
         int getNumBoats();
 
-        bool virtual indexAvailable(Boat b, int idx[]);
+        bool virtual indexAvailable(Boat* b, int idx[]);
         bool addBoat(Boat b, int idx[2]);
-        void addBoatToArray(Boat b);
+        void addBoatToArray(Boat* b);
 
         playerBoard& operator =(const playerBoard& rhs);
 };
