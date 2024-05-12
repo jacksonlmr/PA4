@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build_battleship",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-o",
+                "battleship",
+                "main.cpp",
+                "boat.cpp",
+                "opponentBoard.cpp",
+                "playerBoard.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+
