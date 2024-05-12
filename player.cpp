@@ -58,3 +58,4 @@ void Player::setOpponentBoard(opponentBoard* o){
     delete oBoard;
     oBoard = o;
 }
+
