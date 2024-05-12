@@ -10,20 +10,39 @@ void playGame(){
 }
 
 /**
+ * @brief gets user input
+ * @param None
+ * @return string containing the users input
+*/
+string getInput(){
+    string output;
+    cin >> output;
+    return output;
+}
+
+/**
  * @brief Gets the users input for a location to attack in format <A1> and converts to usable indices in format <[0, 0]>
  * @param None
  * @return int array of length two representing an index on the board
 */
-int* convertInput(){
+int* convertInput(string){
 
 }
 
 /**
  * @brief Checks if input from user is a valid index
- * @param int array of length two representing an index
+ * @param int* pointer to array of length two representing an index
  * @return bool, true if input is valid, false if it is not
 */
-bool checkInput(){
+bool checkInput(int*){
+
+}
+/**
+ * @brief adds the neccesary boats to the array
+ * @param Boat* pointer to array of boats
+ * @return void
+*/
+void generateBoatArray(Boat*){
 
 }
 

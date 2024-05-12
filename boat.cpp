@@ -142,9 +142,13 @@ Boat& Boat::operator=(const Boat& rhs){
     }
     return *this;
 }
-//ostream& Boat::operator<<(ostream& os, const Boat& b){
-//
-//}
-// void Boat::destroyBlock(){
 
-// }
+ostream& operator<<(ostream& os, const Boat& b){
+    os << "Name: " << b.name << endl;
+    os << "Size: " << b.size << endl;
+}
+/*
+ void Boat::destroyBlock(){
+
+}
+*/

@@ -16,7 +16,7 @@ class Human : public Player{
 
     void setName(string);
 
-    void generateBoards();
+    void createPlayerBoard();
     void takeTurn();
 
     friend Human& operator<<(ostream&, const Human&);

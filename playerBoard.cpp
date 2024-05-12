@@ -34,6 +34,12 @@ int playerBoard::getNumBoats(){
     return numBoats;
 }
 
+/**
+ * @brief Finds if an index is available based on the index given, and whether the boat is horizontal or vertical
+ * @param Boat b, boat to check index for 
+ * @param int[] idx, index to check at
+ * @return bool, true if index is available false if it is not
+*/
 bool playerBoard::indexAvailable(Boat b, int idx[]){
     bool returnValue = true, horizontal = b.getisHorizontal();
     int rowIndex = idx[0];
@@ -118,11 +124,7 @@ void playerBoard::addBoatToArray(Boat b){
         numBoats++;
     }
 }
-/*
-void playerBoard::populateBoard(){
 
-}
-*/
 playerBoard& playerBoard::operator =(const playerBoard& rhs){
     for (int i = 0; i < BOARD_SIZE; i++){
         for (int j = 0; j < BOARD_SIZE; j++){

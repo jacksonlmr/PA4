@@ -29,7 +29,7 @@ int* AI::generateIndex(){
 
 }
 
-void AI::generateBoards(){
+void AI::generatePlayerBoard(){
     
 }
 
