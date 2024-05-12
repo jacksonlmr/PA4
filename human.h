@@ -3,6 +3,7 @@
 #include "player.h"
 #include "opponentBoard.h"
 #include "playerBoard.h"
+#include "ai.h"
 
 class Human : public Player{
     string name;
@@ -17,7 +18,7 @@ class Human : public Player{
     void setName(string);
 
     void createPlayerBoard();
-    void takeTurn();
+    int* takeTurn(AI);
 
     friend Human& operator<<(ostream&, const Human&);
 };

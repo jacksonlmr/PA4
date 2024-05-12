@@ -76,10 +76,12 @@ bool gameFinished(){
 
 /**
  * @brief Runs the turn of either AI or human player
- * @param T parameter can be of type Human or AI, depending on what is needed
+ * @param P this will be the type of the player that is taking their turn currently
+ * @param O this will be the type of the players opponent
  * @return void
 */
-template <typename T>
-void startTurn(T){
-
+template <typename P, typename O>
+void startTurn(P, O){
+    int* indexToMark = P->takeTurn();
+    
 }

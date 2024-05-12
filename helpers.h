@@ -12,8 +12,8 @@ int* convertInput(string, int*);
 void generateBoatArray(Boat**);
 int chooseStartingPlayer();
 bool gameFinished();
-template <typename T>
-void startTurn(T);
+template <typename P, typename O>
+void startTurn(P, O);
 
 #endif
 

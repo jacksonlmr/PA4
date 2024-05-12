@@ -70,11 +70,11 @@ void Human::createPlayerBoard(){
     }
 }
 /**
- * @brief Gets input from player of an index to attack on opponents board, and marks the location on both
- * the human players opponentBoard, and the opponents playerBoard
+ * @brief Gets input from player of an index to attack on opponents board, and marks the location on
+ * the human players opponentBoard
  * @param None
- * @return void
+ * @return int* array of length 2 containing the index to mark on the opponents playerBoard
 */
-void Human::takeTurn(){
-    cout << "take turn";
+int* Human::takeTurn(AI opponent){
+    
 }
