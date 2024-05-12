@@ -1,36 +1,24 @@
 #ifndef HUMAN_H
 #define HUMAN_H
-#include "Player.h"
+#include "player.h"
+#include "opponentBoard.h"
+#include "playerBoard.h"
 
 class Human : public Player{
     string name;
 
     public:
-    Human(): Player(){
-        name = "NA"
-    }
-    Human(string n, opponentBoard o, playerBoard p ): Player(o,p){
-        name = n;
-    }
-    Human(const Human& rhs) : Player(rhs){
-        name = rhs.name;
+    Human();
+    Human(string, playerBoard*, opponentBoard*);
+    Human(const Human& rhs);
 
-    }
-    string getName(){
-        return name;
-    }
-    void setName(string n){
-        name = n;
-    }
-    void generateBoard(){
+    string getName();
 
-    }
-    void takeTurn(){
+    void setName(string);
 
-    }
-    Human& operator<<(ostream& o, const Human& i){
+    void generateBoards();
+    void takeTurn();
 
-    }
-
+    friend Human& operator<<(ostream&, const Human&);
 };
 #endif

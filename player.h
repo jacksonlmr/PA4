@@ -21,7 +21,7 @@ class Player{
 
         void updateBoard(int[2], char, char);
         virtual void takeTurn() = 0;
-        virtual void generateBoard() = 0;
+        virtual void generateBoards() = 0;
 
         playerBoard* getPlayerBoard();
         opponentBoard* getOpponentBoard();
