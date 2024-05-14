@@ -1,23 +1,29 @@
+#include "opponentBoard.h"
+#include "playerBoard.h"
+#include "boat.h"
+#include "player.h"
+#include "human.h"
+#include "ai.h"
 #include "helpers.h"
 
 /**
- * @brief Combines all needed functions in order to run the game
+ * @brief Combines all needed functions in order to run the game. 
  * @param None
- * @return void
+ * @return bool- return true if game is over
 */
-void playGame(){
-
+bool playGame(){
+    Human humanPlayer = Human();
 }
 
 /**
- * @brief gets user input
+ * @brief displays main menu for game
  * @param None
- * @return string containing the users input
+ * @return void
 */
-string getInput(){
-    string output;
-    cin >> output;
-    return output;
+void displayMenu(){
+    cout << "=== MAIN MENU ===" << endl;
+    cout << "1. Start Game" << endl;
+    cout << "2. Exit Program" << endl;
 }
 
 /**

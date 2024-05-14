@@ -20,7 +20,7 @@ class Player{
         ~Player();
 
         void updateBoard(int[2], char, char);
-        virtual void takeTurn() = 0;
+        virtual int* takeTurn() = 0;
 
         playerBoard* getPlayerBoard();
         opponentBoard* getOpponentBoard();

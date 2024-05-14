@@ -18,7 +18,7 @@ int** usedIndex;
 
     void setusedIndex(int** u);
 
-    void virtual takeTurn();
+    virtual int* takeTurn();
     int* generateIndex();
     void generatePlayerBoard();
     void populateBoard();

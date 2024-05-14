@@ -41,10 +41,10 @@ void Human::createPlayerBoard(){
         //get input until user enters a valid, unused input
         do {
             cout << "Enter Starting Index (Example: A1): ";
-            rawIndex = getInput();
+            rawIndex = getInput<string>();
 
             cout << "Enter Orientation (h for horizontal or v for vertical): ";
-            orientation = getInput();
+            orientation = getInput<string>();
             
             if (orientation == "h"){
                 boats[i]->setisHorizontal(true);
@@ -77,6 +77,7 @@ void Human::createPlayerBoard(){
  * @return int* array of length 2 containing the index to mark on the opponents playerBoard
 */
 int* Human::takeTurn(AI opponent){
+<<<<<<< Updated upstream
     int column, row;
     cin << column << row;
     int array[2];
@@ -86,4 +87,8 @@ int* Human::takeTurn(AI opponent){
     array[1] = *temp;
     return p;
     
+=======
+    int temp[2] = {1, 2};
+    return temp;
+>>>>>>> Stashed changes
 }

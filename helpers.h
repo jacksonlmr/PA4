@@ -6,8 +6,8 @@
 
 using namespace std;
 
-void playGame();
-string getInput();
+bool playGame();
+void displayMenu();
 int* convertInput(string, int*);
 void generateBoatArray(Boat**);
 int chooseStartingPlayer();
@@ -15,5 +15,16 @@ bool gameFinished();
 template <typename P, typename O>
 void startTurn(P, O);
 
+/**
+ * @brief gets user input
+ * @param None
+ * @return string containing the users input
+*/
+template <typename T>
+T getInput(){
+    T output;
+    cin >> output;
+    return output;
+}
 #endif
 

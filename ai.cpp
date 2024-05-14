@@ -23,7 +23,7 @@ void AI::setusedIndex(int** u){
     usedIndex = u;
 }
 
-void AI::takeTurn(){
+int* AI::takeTurn(){
 //Select random index
     srand((unsigned) time(NULL));
     int randomRow = 0 + (rand() % 11);
