@@ -14,14 +14,14 @@ class playerBoard: public opponentBoard{
 
     public:
         playerBoard();
-        playerBoard(int n, int m, Boat* b, char board[][11]);
+        playerBoard(int n, int m, Boat** b, char board[][11]);
         playerBoard(const playerBoard& rhs);
 
-        Boat* getBoatsOnBoard();
+        Boat** getBoatsOnBoard();
         int getNumBoats();
 
-        bool virtual indexAvailable(Boat* b, int idx[]);
-        bool addBoat(Boat b, int idx[2]);
+        bool virtual indexAvailable(Boat* b);
+        bool addBoat(Boat* b);
         void addBoatToArray(Boat* b);
 
         playerBoard& operator =(const playerBoard& rhs);

@@ -51,36 +51,48 @@ Boat::~Boat(){
 string Boat::getName(){
     return name;
 }
+
 void Boat::setName(string n){
     name = n;
 }
+
 int Boat::getSize(){
     return size;
 }
+
 void Boat::setSize(int s){
     size = s;
 }
+
 bool Boat::getisHorizontal(){
     return isHorizontal;
 }
+
 void Boat::setisHorizontal(bool h){
     isHorizontal = h;
 }
+
 bool Boat::getisDestroyed(){
     return isDestroyed;
 }
+
 void Boat::setisDestroyed(bool d){
     isDestroyed = d;
 }
+
 bool Boat::getisHit(){
     return isHit;
 }
+
 void Boat::setisHit(bool h){
     isHit = h;
 }
+
 int* Boat::getIndex(){
     return startIndex;
 }
+
+
 void Boat::setStartIndex(int j[]){
     for(int i = 0; i < 2; i++){
         startIndex[i] = j[i];
@@ -89,6 +101,12 @@ void Boat::setStartIndex(int j[]){
 int** Boat::getOccupiedIndex(){
     return occupiedIndex;
 }
+
+/**
+ * @brief uses the startIndex, size, and orientation of the boat to determine every index it will occupy
+ * @param None
+ * @return void
+*/
 void Boat::setOccupiedIndex(){
     if (isHorizontal == true){
         //if boat is horizontal, add i to the column value of the index and add to occupiedIndex until size is reached

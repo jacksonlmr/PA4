@@ -3,14 +3,14 @@
 playerBoard::playerBoard(): opponentBoard(){
     numBoats = 0;
     maxNumBoats = 3;
-    boatsOnBoard = new Boat[maxNumBoats];
+    boatsOnBoard = new Boat*[maxNumBoats];
 }
 
-playerBoard::playerBoard(int n, int m, Boat* b, char board[][11]): opponentBoard(board){
+playerBoard::playerBoard(int n, int m, Boat** b, char board[][11]): opponentBoard(board){
     numBoats = n; 
     maxNumBoats = m;
     
-    boatsOnBoard = new Boat[maxNumBoats];
+    boatsOnBoard = new Boat*[maxNumBoats];
     for (int i = 0; i < numBoats; i++){
         boatsOnBoard[i] = b[i];
     }
@@ -20,13 +20,13 @@ playerBoard::playerBoard(const playerBoard& rhs): opponentBoard(rhs){
     numBoats = rhs.numBoats;
     maxNumBoats = rhs.maxNumBoats;
     
-    boatsOnBoard = new Boat[maxNumBoats];
+    boatsOnBoard = new Boat*[maxNumBoats];
     for (int i = 0; i < numBoats; i++){
         boatsOnBoard[i] = rhs.boatsOnBoard[i];
     }
 }
 
-Boat* playerBoard::getBoatsOnBoard(){
+Boat** playerBoard::getBoatsOnBoard(){
     return boatsOnBoard;
 }
 
@@ -35,12 +35,12 @@ int playerBoard::getNumBoats(){
 }
 
 /**
- * @brief Finds if an index is available based on the index given, and whether the boat is horizontal or vertical
+ * @brief Finds if an index is available based on the index of the boat, and whether the boat is horizontal or vertical
  * @param Boat b, boat to check index for 
- * @param int[] idx, index to check at
  * @return bool, true if index is available false if it is not
 */
-bool playerBoard::indexAvailable(Boat* b, int idx[]){
+bool playerBoard::indexAvailable(Boat* b){
+    int* idx = b->getIndex();
     bool returnValue = true, horizontal = b->getisHorizontal();
     int rowIndex = idx[0];
     int columnIndex = idx[1];
@@ -78,25 +78,31 @@ bool playerBoard::indexAvailable(Boat* b, int idx[]){
     return returnValue;
 }
 
-//returns true if boat was added succesfully, false it index was invalid
-bool playerBoard::addBoat(Boat b, int idx[2]){
-    bool checkIndex = indexAvailable(b, idx), returnValue = false;
+/**
+ * @brief checks if the boat can be added at the index it has
+ * @param b Boat object to check
+ * @return bool- true if boat can be added to desired index, false otherwise
+*/
+bool playerBoard::addBoat(Boat* b){
+    bool checkIndex = indexAvailable(b), returnValue = false;
+    int* idx = b->getIndex();
     int startR = idx[0], startC = idx[1];
-    b.setStartIndex(idx);
-    b.setOccupiedIndex();
+
+    b->setOccupiedIndex();
+
     //add boat, if the index is available
     if (checkIndex == true){
         addBoatToArray(b);
         //add boat horizontally
-        if (b.getisHorizontal() == true){
-            for (int i = 0; i < b.getSize(); i++){
+        if (b->getisHorizontal() == true){
+            for (int i = 0; i < b->getSize(); i++){
                 int indexToChange[2] = {startR+i, startC};
                 changeIndex(indexToChange, BOAT_CHARACTER);
             }
         }
         //add boat vertically
         else {
-            for (int i = 0; i < b.getSize(); i++){
+            for (int i = 0; i < b->getSize(); i++){
                 boardArray[startR][startC+i] = BOAT_CHARACTER;
             }
         }
@@ -106,6 +112,11 @@ bool playerBoard::addBoat(Boat b, int idx[2]){
     return returnValue;
 }
 
+/**
+ * @brief adds a boat to the boat array
+ * @param b Boat pointer to boat to be added
+ * @return void
+*/
 void playerBoard::addBoatToArray(Boat* b){
     if (maxNumBoats == numBoats){
         maxNumBoats += 3;
@@ -135,7 +146,7 @@ playerBoard& playerBoard::operator =(const playerBoard& rhs){
     numBoats = rhs.numBoats;
     maxNumBoats = rhs.maxNumBoats;
     
-    boatsOnBoard = new Boat[maxNumBoats];
+    boatsOnBoard = new Boat*[maxNumBoats];
     for (int i = 0; i < numBoats; i++){
         boatsOnBoard[i] = rhs.boatsOnBoard[i];
     }

@@ -17,6 +17,6 @@ int** usedIndex;
     void virtual takeTurn();
     int* generateIndex();
     void generatePlayerBoard();
-    Boat* generateBoatArray();
+    void populateBoard();
 };
 #endif

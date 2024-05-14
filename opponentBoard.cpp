@@ -38,6 +38,11 @@ opponentBoard::opponentBoard(const opponentBoard& rhs){
     }
 }
 
+/**
+ * @brief clears the board of any markers, sets back to default
+ * @param None
+ * @return void
+*/
 void opponentBoard::clearBoard(){
     for (int i = 0; i < BOARD_SIZE; i++) {
         for (int j = 0; j < BOARD_SIZE; j++) {
@@ -60,7 +65,12 @@ void opponentBoard::clearBoard(){
     }
 }
 
-bool opponentBoard::indexAvailable(Boat b, bool h, int idx[]){
+/**
+ * @brief checks if there are any markers at the desired index on the board
+ * @param idx length 2 array containing the index to check
+ * @return bool- false if board contains something at the index, true if it is empty
+*/
+bool opponentBoard::indexAvailable(int idx[]){
     if (boardArray[idx[0]][idx[1]] != '-'){
         return false;
     }
@@ -70,6 +80,12 @@ bool opponentBoard::indexAvailable(Boat b, bool h, int idx[]){
     }
 }
 
+/**
+ * @brief changes a desired index to a new character. Used for adding hit markers
+ * @param idx index to change
+ * @param c char character to change index to
+ * @return void
+*/
 void opponentBoard::changeIndex(int idx[2], char c){
     int rowIndex = idx[0];
     int columnIndex = idx[1];

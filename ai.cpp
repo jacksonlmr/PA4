@@ -1,4 +1,6 @@
 #include "ai.h"
+#include "helpers.h"
+#define NUM_BOATS 5
 
 AI::AI(): Player(){
     usedIndex = 0;
@@ -33,11 +35,22 @@ void AI::generatePlayerBoard(){
 }
 
 /**
- * @brief generates array of boats with indices and directions, using playerBoards method indexAvailable
+ * @brief uses generateBoatArray, then adds the boats to the board in random locations
  * @param None
  * @return Boat* array of boats
 */
-Boat* AI::generateBoatArray(){
-    Boat* boat = new Boat;
-    return boat;
+void AI::populateBoard(){ 
+    int* idx;
+    Boat** boats = pBoard->getBoatsOnBoard();
+
+    generateBoatArray(boats);
+
+    for (int i = 0; i < NUM_BOATS; i++){
+        do{
+            idx = generateIndex();
+        }while(pBoard->indexAvailable(boats[i], idx) == false);
+        
+        boats[i]->setStartIndex(idx);
+        pBoard->addBoat(boats[i]);
+    }
 }

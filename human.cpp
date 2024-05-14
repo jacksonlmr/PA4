@@ -55,7 +55,7 @@ void Human::createPlayerBoard(){
             }
 
             convertInput(rawIndex, processedIndex);
-            validInput = pBoard->indexAvailable(boats[i], processedIndex);
+            validInput = pBoard->indexAvailable(boats[i]);
 
             if(validInput == false){
                 cout << "Please enter a valid index and orientation that has not already been used";
@@ -69,6 +69,7 @@ void Human::createPlayerBoard(){
         }while(validInput == false);
     }
 }
+
 /**
  * @brief Gets input from player of an index to attack on opponents board, and marks the location on
  * the human players opponentBoard

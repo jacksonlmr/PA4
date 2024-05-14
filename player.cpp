@@ -49,11 +49,21 @@ opponentBoard* Player::getOpponentBoard(){
     return oBoard;
 }
 
+/**
+ * @brief sets the pBoard object to a new board
+ * @param p playerBoard object to change to
+ * @return void
+*/
 void Player::setPlayerBoard(playerBoard* p){
     delete pBoard;
     pBoard = p;
 }
 
+/**
+ * @brief sets the oBoard object to a new board
+ * @param o opponentBoard object to change to
+ * @return void
+*/
 void Player::setOpponentBoard(opponentBoard* o){
     delete oBoard;
     oBoard = o;

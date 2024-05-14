@@ -17,7 +17,7 @@ class opponentBoard{
         opponentBoard(const opponentBoard& rhs);
 
         void clearBoard();
-        bool virtual indexAvailable(Boat b, bool h, int idx[]);
+        bool virtual indexAvailable(int idx[]);
         void changeIndex(int idx[2], char c);
         
         opponentBoard& operator = (const opponentBoard& rhs);

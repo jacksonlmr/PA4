@@ -9,13 +9,7 @@
 using namespace std;
 
 int main (){
-    Human human = Human();
-
-    human.createPlayerBoard();
-
-    playerBoard* testBoard = human.getPlayerBoard();
-
-    cout << testBoard;
+    
 
     return 0;
 }
