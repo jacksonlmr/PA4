@@ -1,6 +1,9 @@
 #ifndef AI_H
 #define AI_H
 #include "player.h"
+#include "playerBoard.h"
+#include "opponentBoard.h"
+#include "boat.h"
 #include<cstdlib>
 
 class AI : public Player{

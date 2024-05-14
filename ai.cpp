@@ -1,5 +1,6 @@
 #include "ai.h"
 #include "helpers.h"
+
 #define NUM_BOATS 5
 
 AI::AI(): Player(){
@@ -27,7 +28,7 @@ void AI::takeTurn(){
     srand((unsigned) time(NULL));
     int randomRow = 0 + (rand() % 11);
     int randomCol = 0 + (rand() % 11);
-cout << "AI shoots at " <<randomRow << randomCol << endl;
+  //  cout << "AI shoots at " <<randomRow << randomCol << endl;
 
 }
 
@@ -37,21 +38,36 @@ cout << "AI shoots at " <<randomRow << randomCol << endl;
  * @return void
 */
 int* AI::generateIndex(){
-    return 0;
-}
-
-void AI::generatePlayerBoard(){
     srand((unsigned) time(NULL));
     int randomRow = 0 + (rand() % 11);
     int randomCol = 0 + (rand() % 11);
     int boolean = 0 + (rand() % 1);
-    isHorizontal = boolean;
-    if(isHorizontal == 0){
+    int array[2];
+    array[0] = randomRow;
+    array[1] = randomCol;
+    int* PArray = array;
+    return PArray;
+}
 
+void AI::generatePlayerBoard(playerBoard* p){
+    srand((unsigned) time(NULL));
+    int randomRow = 0 + (rand() % 11);
+    int randomCol = 0 + (rand() % 11);
+    int boolean = 0 + (rand() % 1);
+    bool isHorizontal = boolean;
+    if(isHorizontal == 0){
+        int* start = randomCol;
+        for(int i = randomRow; i < boats->getSize() + randomRow; i++){
+            *p[i][randomCol] = boats;
+        }
     }
     if(isHorizontal == 1){
-
+        int* start = randomRow;
+        for(int i = randomCol; i < boats->getSize() + randomCol; i++){
+            *p[randomRow][i] = boats;
+        }
     }
+    return start;
     
 }
 
@@ -60,7 +76,6 @@ void AI::generatePlayerBoard(){
  * @param None
  * @return Boat* array of boats
 */
-<<<<<<< Updated upstream
 void AI::populateBoard(){ 
     int* idx;
     Boat** boats = pBoard->getBoatsOnBoard();
@@ -75,9 +90,5 @@ void AI::populateBoard(){
         boats[i]->setStartIndex(idx);
         pBoard->addBoat(boats[i]);
     }
-=======
-Boat* AI::generateBoatArray(){
-    Boat* boat = new Boat[];
-    return boat;
->>>>>>> Stashed changes
 }
+
