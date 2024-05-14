@@ -26,6 +26,11 @@ void AI::takeTurn(){
 
 }
 
+/**
+ * @brief uses random library to generate a random index on the board
+ * @param None
+ * @return void
+*/
 int* AI::generateIndex(){
     return 0;
 }
@@ -49,7 +54,7 @@ void AI::populateBoard(){
         do{
             idx = generateIndex();
         }while(pBoard->indexAvailable(boats[i], idx) == false);
-        
+
         boats[i]->setStartIndex(idx);
         pBoard->addBoat(boats[i]);
     }
