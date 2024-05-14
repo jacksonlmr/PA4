@@ -77,18 +77,8 @@ void Human::createPlayerBoard(){
  * @return int* array of length 2 containing the index to mark on the opponents playerBoard
 */
 int* Human::takeTurn(AI opponent){
-<<<<<<< Updated upstream
-    int column, row;
-    cin << column << row;
-    int array[2];
-    int* p = array;
-    int* temp = convertInput(column, p);
-    array[0] = row;
-    array[1] = *temp;
+    string input;
+    cin >> input;
+    int* p = convertInput(input, p);
     return p;
-    
-=======
-    int temp[2] = {1, 2};
-    return temp;
->>>>>>> Stashed changes
 }

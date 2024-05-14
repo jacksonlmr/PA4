@@ -49,27 +49,27 @@ int* AI::generateIndex(){
     return PArray;
 }
 
-void AI::generatePlayerBoard(playerBoard* p){
-    srand((unsigned) time(NULL));
-    int randomRow = 0 + (rand() % 11);
-    int randomCol = 0 + (rand() % 11);
-    int boolean = 0 + (rand() % 1);
-    bool isHorizontal = boolean;
-    if(isHorizontal == 0){
-        int* start = randomCol;
-        for(int i = randomRow; i < boats->getSize() + randomRow; i++){
-            *p[i][randomCol] = boats;
-        }
-    }
-    if(isHorizontal == 1){
-        int* start = randomRow;
-        for(int i = randomCol; i < boats->getSize() + randomCol; i++){
-            *p[randomRow][i] = boats;
-        }
-    }
-    return start;
+// void AI::generatePlayerBoard(playerBoard* p){
+//     srand((unsigned) time(NULL));
+//     int randomRow = 0 + (rand() % 11);
+//     int randomCol = 0 + (rand() % 11);
+//     int boolean = 0 + (rand() % 1);
+//     bool isHorizontal = boolean;
+//     if(isHorizontal == 0){
+//         int* start = randomCol;
+//         for(int i = randomRow; i < boats->getSize() + randomRow; i++){
+//             *p[i][randomCol] = boats;
+//         }
+//     }
+//     if(isHorizontal == 1){
+//         int* start = randomRow;
+//         for(int i = randomCol; i < boats->getSize() + randomCol; i++){
+//             *p[randomRow][i] = boats;
+//         }
+//     }
+//     return start;
     
-}
+// }
 
 /**
  * @brief uses generateBoatArray, then adds the boats to the board in random locations

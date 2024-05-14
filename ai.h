@@ -20,7 +20,7 @@ int** usedIndex;
 
     virtual int* takeTurn();
     int* generateIndex();
-    void generatePlayerBoard();
+    //void generatePlayerBoard();
     void populateBoard();
 };
 #endif
