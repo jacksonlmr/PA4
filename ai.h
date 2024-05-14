@@ -1,6 +1,7 @@
 #ifndef AI_H
 #define AI_H
 #include "player.h"
+#include<cstdlib>
 
 class AI : public Player{
 int** usedIndex;

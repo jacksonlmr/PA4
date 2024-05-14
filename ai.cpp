@@ -23,6 +23,11 @@ void AI::setusedIndex(int** u){
 }
 
 void AI::takeTurn(){
+//Select random index
+    srand((unsigned) time(NULL));
+    int randomRow = 0 + (rand() % 11);
+    int randomCol = 0 + (rand() % 11);
+cout << "AI shoots at " <<randomRow << randomCol << endl;
 
 }
 
@@ -36,6 +41,17 @@ int* AI::generateIndex(){
 }
 
 void AI::generatePlayerBoard(){
+    srand((unsigned) time(NULL));
+    int randomRow = 0 + (rand() % 11);
+    int randomCol = 0 + (rand() % 11);
+    int boolean = 0 + (rand() % 1);
+    isHorizontal = boolean;
+    if(isHorizontal == 0){
+
+    }
+    if(isHorizontal == 1){
+
+    }
     
 }
 
@@ -44,6 +60,7 @@ void AI::generatePlayerBoard(){
  * @param None
  * @return Boat* array of boats
 */
+<<<<<<< Updated upstream
 void AI::populateBoard(){ 
     int* idx;
     Boat** boats = pBoard->getBoatsOnBoard();
@@ -58,4 +75,9 @@ void AI::populateBoard(){
         boats[i]->setStartIndex(idx);
         pBoard->addBoat(boats[i]);
     }
+=======
+Boat* AI::generateBoatArray(){
+    Boat* boat = new Boat[];
+    return boat;
+>>>>>>> Stashed changes
 }
