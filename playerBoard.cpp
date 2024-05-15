@@ -14,7 +14,19 @@ playerBoard::playerBoard(int n, int m, Boat** b, char board[][11]): opponentBoar
     for (int i = 0; i < numBoats; i++){
         boatsOnBoard[i] = b[i];
     }
-}
+
+    for (int i = 1; i < 12; i++) {
+        board[0][i] = 'A' + i - 1;
+    }
+    for (int i = 1; i < 12; i++) {
+        board[i][0] = '0' + i;
+    }
+    for (int i = 1; i < 12; i++) {
+        for (int j = 1; j < 12; j++) {
+            board[i][j] = '-';
+        }
+    }
+ }
 
 playerBoard::playerBoard(const playerBoard& rhs): opponentBoard(rhs){
     numBoats = rhs.numBoats;
@@ -23,6 +35,17 @@ playerBoard::playerBoard(const playerBoard& rhs): opponentBoard(rhs){
     boatsOnBoard = new Boat*[maxNumBoats];
     for (int i = 0; i < numBoats; i++){
         boatsOnBoard[i] = rhs.boatsOnBoard[i];
+    }
+        for (int i = 1; i < 12; i++) {
+        board[0][i] = rhs.board[0][i];
+    }
+    for (int i = 1; i < 12; i++) {
+        board[i][0] = rhs.board[i][0];
+    }
+    for (int i = 1; i < 12; i++) {
+        for (int j = 1; j < 12; j++) {
+            board[i][j] =rhs.board[i][j];
+        }
     }
 }
 
@@ -151,4 +174,23 @@ playerBoard& playerBoard::operator =(const playerBoard& rhs){
         boatsOnBoard[i] = rhs.boatsOnBoard[i];
     }
     return *this;
+}
+
+void playerBoard::initializeBoard(//Boat* b, int numBoats,char board[11][11]
+) {
+    int board[11][11];
+    // for (int i = 0; i < numBoats; i++) {
+    //     boatsOnBoard[i] = &b[i];
+    // }
+    for (int i = 1; i < 12; i++) {
+        board[0][i] = 'A' + i - 1;
+    }
+    for (int i = 1; i < 12; i++) {
+        board[i][0] = '0' + i;
+    }
+    for (int i = 1; i < 12; i++) {
+        for (int j = 1; j < 12; j++) {
+            board[i][j] = '-';
+        }
+    }
 }

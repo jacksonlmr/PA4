@@ -11,6 +11,7 @@ using namespace std;
 class playerBoard: public opponentBoard{
     int numBoats, maxNumBoats;
     Boat** boatsOnBoard;
+    char board[11][11];
 
     public:
         playerBoard();
@@ -19,6 +20,8 @@ class playerBoard: public opponentBoard{
 
         Boat** getBoatsOnBoard();
         int getNumBoats();
+        void initializeBoard(//Boat* b, int numBoats, char board[11][11]
+        );
 
         bool virtual indexAvailable(Boat* b);
         bool addBoat(Boat* b);

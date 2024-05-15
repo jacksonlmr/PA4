@@ -17,10 +17,13 @@ bool playGame(){
     bool end = false;
     int startingPlayer;
     char* winner;
-
+   // initializeBoard(aiPlayer.getPlayerBoard());
+cout << aiPlayer.getPlayerBoard() << endl << humanPlayer.getPlayerBoard();
+    
     aiPlayer.populateBoard();
     humanPlayer.createPlayerBoard();
-
+    // initializeBoard(Boat* b, int numBoats, aiPlayer.getPlayerBoard())
+    
     while (end == false){
         startingPlayer = chooseStartingPlayer();
         switch (startingPlayer){

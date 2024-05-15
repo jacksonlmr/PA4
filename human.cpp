@@ -33,6 +33,7 @@ void Human::createPlayerBoard(){
     int* processedIndex;
     string rawIndex, orientation;
     bool validInput;
+    int idx[2];
 
     generateBoatArray(boats);
 
@@ -54,7 +55,7 @@ void Human::createPlayerBoard(){
                 boats[i]->setisHorizontal(false);
             }
 
-            convertInput(rawIndex, processedIndex);
+            int* converted = convertInput(rawIndex, processedIndex);
             validInput = pBoard->indexAvailable(boats[i]);
 
             if(validInput == false){

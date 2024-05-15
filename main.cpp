@@ -11,7 +11,8 @@ using namespace std;
 
 int main (){
     bool endProgram = false;
-
+    playerBoard test;
+    cout<< test;
     while(endProgram == false){
         displayMenu();
         int userChoice = getInput<int>();
