@@ -85,7 +85,7 @@ void AI::populateBoard(){
     for (int i = 0; i < NUM_BOATS; i++){
         do{
             idx = generateIndex();
-        }while(pBoard->indexAvailable(boats[i], idx) == false);
+        }while(pBoard->indexAvailable(boats[i]) == false);
 
         boats[i]->setStartIndex(idx);
         pBoard->addBoat(boats[i]);

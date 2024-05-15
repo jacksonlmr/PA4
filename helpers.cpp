@@ -123,23 +123,22 @@ bool gameFinished(Human* H, AI* A){
  * @param O this will be the type of the players opponent
  * @return void
 */
-template <typename P, typename O>
-void startTurn(P p1,  O p2){
-    int counter = 0;
-    if(counter == 0){
-        int temp = chooseStartingPlayer();
-
-        if(temp == 0){
-        int* indexToMark = O->takeTurn();
-        counter = 1;
-        }
-        if(temp == 1){
-        int* indexToMark = P->takeTurn();
-        counter = 2;
-        }
-    }
-    if(counter == 1){
-        P->takeTurn();
-        counter = 2
-    } 
-}
+// template <typename P, typename O>
+// void startTurn(P p1,  O p2){
+//     int* indexToMark = p1.takeTurn();
+//     bool temp = p2.getOpponentBoard()->indexAvailable(indexToMark);
+//     if(temp == false){
+//         p2.getPlayerBoard()->changeIndex(indexToMark, 'X');
+//     }
+//     else{
+//         p2.getPlayerBoard()->changeIndex(indexToMark, 'O');
+//     }
+//     indexToMark = p2.takeTurn();
+//     temp = p1.getOpponentBoard()->indexAvailable(indexToMark);
+//     if(temp == false){
+//         p1.getPlayerBoard()->changeIndex(indexToMark, 'X');
+//     }
+//     else{
+//         p1.getPlayerBoard()->changeIndex(indexToMark, 'O');
+//     }
+// }
