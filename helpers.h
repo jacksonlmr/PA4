@@ -2,6 +2,8 @@
 #define HELPERS_H
 #include "player.h"
 #include "boat.h"
+#include "human.h"
+#include "ai.h"
 #include <stdio.h>
 
 using namespace std;
@@ -11,7 +13,7 @@ void displayMenu();
 int* convertInput(string, int*);
 void generateBoatArray(Boat**);
 int chooseStartingPlayer();
-bool gameFinished();
+bool gameFinished(Human*, AI*);
 template <typename P, typename O>
 void startTurn(P, O);
 

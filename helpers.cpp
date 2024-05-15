@@ -69,15 +69,29 @@ void generateBoatArray(Boat** boats){
  * @return int, 1 means human goes first, 0 means ai goes first
 */
 int chooseStartingPlayer(){
-    return 0;
+    srand((unsigned) time(NULL));
+    int starter = 0 + (rand() % 1);
+    return starter;
 }
 /**
  * @brief Returns true if all of either player's ships have been destroyed, false otherwise
  * @param None
  * @return bool, true if both players have at least one ship left, false if at least one player had 0 ships left
 */
-bool gameFinished(){
-    return false;
+bool gameFinished(Human* H, AI* A){
+    if(H->getPlayerBoard()->getNumBoats() <= 0 ){
+        return false;
+        cout << "AI is the winner!" << endl;
+
+    }
+    if( A->getPlayerBoard()->getNumBoats() <= 0){
+        string name = H->getName();
+        cout << name<< " is the winner!" << endl;
+        return false;
+    }
+    else{
+        return true;
+    }
 }
 
 /**
@@ -88,6 +102,23 @@ bool gameFinished(){
 */
 template <typename P, typename O>
 void startTurn(P, O){
-    int* indexToMark = P->takeTurn();
+    int counter = 0;
+    if(counter == 0){
+        int temp = chooseStartingPlayer();
+
+        if(temp == 0){
+        int* indexToMark = O->takeTurn();
+        counter = 1;
+        }
+        if(temp == 1){
+        int* indexToMark = P->takeTurn();
+        counter = 2;
+        }
+    }
+    if(counter == 1){
+        P->takeTurn();
+        counter = 2
+    }
+    
     
 }
