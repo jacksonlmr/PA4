@@ -47,11 +47,10 @@ int* AI::generateIndex(){
     int randomRow = 0 + (rand() % 11);
     int randomCol = 0 + (rand() % 11);
     int boolean = 0 + (rand() % 1);
-    int array[2];
+    int* array = new int[2];
     array[0] = randomRow;
     array[1] = randomCol;
-    int* PArray = array;
-    return PArray;
+    return array;
 }
 
 // void AI::generatePlayerBoard(playerBoard* p){

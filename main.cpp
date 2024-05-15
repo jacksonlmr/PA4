@@ -19,8 +19,10 @@ int main (){
         switch(userChoice){
             case 1: 
                 endProgram = playGame();
+                break;
             case 2:
                 return 0;
+                break;
         }
     }
 

@@ -25,13 +25,13 @@ bool playGame(){
         startingPlayer = chooseStartingPlayer();
         switch (startingPlayer){
             case 1:
-                while(gameFinished(&humanPlayer, &aiPlayer) == true){
+                while(gameFinished(&humanPlayer, &aiPlayer) == false){
                     startTurn<Human, AI>(humanPlayer, aiPlayer);
                 }
                 end = true;
                 break;
             case 2:
-                while(gameFinished(&humanPlayer, &aiPlayer) == true){
+                while(gameFinished(&humanPlayer, &aiPlayer) == false){
                     startTurn<AI, Human>(aiPlayer, humanPlayer);
                 }
                 end = true;
@@ -97,26 +97,25 @@ void generateBoatArray(Boat** boats){
 */
 int chooseStartingPlayer(){
     srand((unsigned) time(NULL));
-    int starter = 0 + (rand() % 1);
+    int starter = 0 + (rand() % 2);
     return starter;
 }
 /**
  * @brief Returns true if all of either player's ships have been destroyed, false otherwise
  * @param None
- * @return bool, true if both players have at least one ship left, false if at least one player had 0 ships left
+ * @return bool, flase if both players have at least one ship left, true if at least one player had 0 ships left
 */
 bool gameFinished(Human* H, AI* A){
     if(H->getPlayerBoard()->getNumBoats() <= 0 ){
-        return false;
         cout << "AI is the winner!" << endl;
-
+        return true;
     }
     if( A->getPlayerBoard()->getNumBoats() <= 0){
         string name = H->getName();
         cout << name<< " is the winner!" << endl;
-        return false;
+        return true;
     }
     else{
-        return true;
+        return false;
     }
 }
