@@ -37,7 +37,7 @@ void Human::createPlayerBoard(){
     generateBoatArray(boats);
 
     for (int i = 0; i < NUM_BOATS; i++){
-        cout << "Boat to place: " << endl << boats[i];
+        cout << "Boat to place: " << endl << *boats[i];
         //get input until user enters a valid, unused input
         do {
             cout << "Enter Starting Index (Example: A1): ";

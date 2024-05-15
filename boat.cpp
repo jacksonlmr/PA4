@@ -107,26 +107,27 @@ int** Boat::getOccupiedIndex(){
  * @param None
  * @return void
 */
-void Boat::setOccupiedIndex(){
-    if (isHorizontal == true){
-        //if boat is horizontal, add i to the column value of the index and add to occupiedIndex until size is reached
-        for (int i = 0; i < size; i++){
-            int* nextIndex = new int[2];
-            nextIndex[0] = startIndex[0];
-            nextIndex[1] = startIndex[1] + i;
-            occupiedIndex[i] = nextIndex;
-        }
-    }
+// void Boat::setOccupiedIndex(){
+//     clearOccupiedIndex();
+//     if (isHorizontal == true){
+//         //if boat is horizontal, add i to the column value of the index and add to occupiedIndex until size is reached
+//         for (int i = 0; i < size; i++){
+//             int* nextIndex = new int[2];
+//             nextIndex[0] = startIndex[0];
+//             nextIndex[1] = startIndex[1] + i;
+//             occupiedIndex[i] = nextIndex;
+//         }
+//     }
 
-    else{
-        for (int i = 0; i < size; i++){
-            int* nextIndex = new int[2];
-            nextIndex[0] = startIndex[0] + i;
-            nextIndex[1] = startIndex[1];
-            occupiedIndex[i] = nextIndex;
-        }
-    }
-}
+//     else{
+//         for (int i = 0; i < size; i++){
+//             int* nextIndex = new int[2];
+//             nextIndex[0] = startIndex[0] + i;
+//             nextIndex[1] = startIndex[1];
+//             occupiedIndex[i] = nextIndex;
+//         }
+//     }
+// }
 bool Boat::shipSank(){
     if(size == hitCount){
         isDestroyed = true;
@@ -167,3 +168,42 @@ ostream& operator<<(ostream& os, const Boat& b){
 
 }
 */
+void Boat::clearOccupiedIndex() {
+    if (occupiedIndex != nullptr) {
+        for (int i = 0; i < size; i++) {
+            delete[] occupiedIndex[i];
+        }
+        delete[] occupiedIndex; 
+        occupiedIndex = nullptr; 
+    }
+}
+
+void Boat::setOccupiedIndex() {
+    // Clear existing occupiedIndex if needed (to avoid memory leaks)
+    clearOccupiedIndex();
+
+    // Allocate memory for the occupiedIndex array
+    occupiedIndex = new int*[size];
+    if (isHorizontal) {
+        for (int i = 0; i < size; i++) {
+            occupiedIndex[i] = new int[2]; 
+            if (!occupiedIndex[i]) {
+                clearOccupiedIndex();
+                return;
+            }
+            occupiedIndex[i][0] = startIndex[0];
+            occupiedIndex[i][1] = startIndex[1] + i; 
+        }
+    } 
+    else {
+        for (int i = 0; i < size; i++) {
+            occupiedIndex[i] = new int[2];
+            if (!occupiedIndex[i]) {
+                clearOccupiedIndex(); 
+                return;
+            }
+            occupiedIndex[i][0] = startIndex[0] + i; 
+            occupiedIndex[i][1] = startIndex[1]; 
+        }
+    }
+}

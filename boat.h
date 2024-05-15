@@ -34,6 +34,7 @@ class Boat{
         int** getOccupiedIndex();
         void setOccupiedIndex();
         bool shipSank();
+        void clearOccupiedIndex();
         Boat& operator=(const Boat& rhs);
         friend ostream& operator<<(ostream&, const Boat&);
         //void destroyBlock();

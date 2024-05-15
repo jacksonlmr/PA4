@@ -29,11 +29,13 @@ bool playGame(){
                     startTurn<Human, AI>(humanPlayer, aiPlayer);
                 }
                 end = true;
+                break;
             case 2:
                 while(gameFinished(&humanPlayer, &aiPlayer) == true){
                     startTurn<AI, Human>(aiPlayer, humanPlayer);
                 }
                 end = true;
+                break;
         }
     }
     return end;
@@ -60,13 +62,14 @@ int* convertInput(string input, int* idx){
     int idx1, idx2;
 
     idx1 = input[0] - 'A' + 1;
-    idx2 = input[1];
+    idx2 = input[1] - '0';
 
     idx[0] = idx1;
     idx[1] = idx2;
 
     return idx;
 }
+
 
 /**
  * @brief adds the neccesary boats to the array
