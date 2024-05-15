@@ -16,6 +16,7 @@ int* convertInput(string, int*);
 void generateBoatArray(Boat**);
 int chooseStartingPlayer();
 bool gameFinished(Human*, AI*);
+
 template <typename P, typename O>
 void startTurn(P, O);
 

@@ -101,7 +101,6 @@ int chooseStartingPlayer(){
  * @param None
  * @return bool, true if both players have at least one ship left, false if at least one player had 0 ships left
 */
-<<<<<<< Updated upstream
 bool gameFinished(Human* H, AI* A){
     if(H->getPlayerBoard()->getNumBoats() <= 0 ){
         return false;
@@ -116,10 +115,6 @@ bool gameFinished(Human* H, AI* A){
     else{
         return true;
     }
-=======
-bool gameFinished(Human* H, AI* a){
-    return false;
->>>>>>> Stashed changes
 }
 
 /**
@@ -129,7 +124,7 @@ bool gameFinished(Human* H, AI* a){
  * @return void
 */
 template <typename P, typename O>
-void startTurn(P, O){
+void startTurn(P p1,  O p2){
     int counter = 0;
     if(counter == 0){
         int temp = chooseStartingPlayer();
@@ -146,7 +141,5 @@ void startTurn(P, O){
     if(counter == 1){
         P->takeTurn();
         counter = 2
-    }
-    
-    
+    } 
 }
