@@ -1,6 +1,8 @@
 #ifndef HELPERS_H
 #define HELPERS_H
 #include "player.h"
+#include "ai.h"
+#include "human.h"
 #include "boat.h"
 #include "human.h"
 #include "ai.h"

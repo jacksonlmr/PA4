@@ -76,7 +76,7 @@ void Human::createPlayerBoard(){
  * @param None
  * @return int* array of length 2 containing the index to mark on the opponents playerBoard
 */
-int* Human::takeTurn(AI opponent){
+int* Human::takeTurn(){
     string input;
     cin >> input;
     int* p = convertInput(input, p);

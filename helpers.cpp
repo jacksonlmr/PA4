@@ -12,7 +12,30 @@
  * @return bool- return true if game is over
 */
 bool playGame(){
-    Human humanPlayer = Human();
+    Human humanPlayer;
+    AI aiPlayer;
+    bool end = false;
+    int startingPlayer;
+    char* winner;
+
+    aiPlayer.populateBoard();
+    humanPlayer.createPlayerBoard();
+
+    while (end == false){
+        startingPlayer = chooseStartingPlayer();
+        switch (startingPlayer){
+            case 1:
+                while(gameFinished(&humanPlayer, &aiPlayer) == true){
+                    startTurn<Human, AI>(humanPlayer, aiPlayer);
+                }
+                end = true;
+            case 2:
+                while(gameFinished(&humanPlayer, &aiPlayer) == true){
+                    startTurn<AI, Human>(aiPlayer, humanPlayer);
+                }
+                end = true;
+        }
+    }
 }
 
 /**
@@ -78,6 +101,7 @@ int chooseStartingPlayer(){
  * @param None
  * @return bool, true if both players have at least one ship left, false if at least one player had 0 ships left
 */
+<<<<<<< Updated upstream
 bool gameFinished(Human* H, AI* A){
     if(H->getPlayerBoard()->getNumBoats() <= 0 ){
         return false;
@@ -92,6 +116,10 @@ bool gameFinished(Human* H, AI* A){
     else{
         return true;
     }
+=======
+bool gameFinished(Human* H, AI* a){
+    return false;
+>>>>>>> Stashed changes
 }
 
 /**
