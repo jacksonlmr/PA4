@@ -36,6 +36,7 @@ bool playGame(){
                 end = true;
         }
     }
+    return end;
 }
 
 /**
@@ -116,29 +117,3 @@ bool gameFinished(Human* H, AI* A){
         return true;
     }
 }
-
-/**
- * @brief Runs the turn of either AI or human player
- * @param P this will be the type of the player that is taking their turn currently
- * @param O this will be the type of the players opponent
- * @return void
-*/
-// template <typename P, typename O>
-// void startTurn(P p1,  O p2){
-//     int* indexToMark = p1.takeTurn();
-//     bool temp = p2.getOpponentBoard()->indexAvailable(indexToMark);
-//     if(temp == false){
-//         p2.getPlayerBoard()->changeIndex(indexToMark, 'X');
-//     }
-//     else{
-//         p2.getPlayerBoard()->changeIndex(indexToMark, 'O');
-//     }
-//     indexToMark = p2.takeTurn();
-//     temp = p1.getOpponentBoard()->indexAvailable(indexToMark);
-//     if(temp == false){
-//         p1.getPlayerBoard()->changeIndex(indexToMark, 'X');
-//     }
-//     else{
-//         p1.getPlayerBoard()->changeIndex(indexToMark, 'O');
-//     }
-// }

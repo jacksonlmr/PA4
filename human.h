@@ -18,7 +18,7 @@ class Human : public Player{
     void setName(string);
 
     void createPlayerBoard();
-    int* takeTurn() override;
+    int* takeTurn();
 
     friend Human& operator<<(ostream&, const Human&);
 };

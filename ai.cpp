@@ -24,12 +24,17 @@ void AI::setusedIndex(int** u){
 }
 
 int* AI::takeTurn(){
-//Select random index
+    int* idx = new int[2];
+    //Select random index
     srand((unsigned) time(NULL));
     int randomRow = 0 + (rand() % 11);
     int randomCol = 0 + (rand() % 11);
-  //  cout << "AI shoots at " <<randomRow << randomCol << endl;
+    //  cout << "AI shoots at " <<randomRow << randomCol << endl;
 
+    idx[0] = randomRow;
+    idx[1] = randomCol;
+
+    return idx;
 }
 
 /**
@@ -85,6 +90,7 @@ void AI::populateBoard(){
     for (int i = 0; i < NUM_BOATS; i++){
         do{
             idx = generateIndex();
+            boats[i]->setStartIndex(idx);
         }while(pBoard->indexAvailable(boats[i]) == false);
 
         boats[i]->setStartIndex(idx);
