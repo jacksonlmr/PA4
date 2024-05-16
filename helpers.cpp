@@ -18,7 +18,7 @@ bool playGame(){
     int startingPlayer;
     char* winner;
    // initializeBoard(aiPlayer.getPlayerBoard());
-cout << aiPlayer.getPlayerBoard() << endl << humanPlayer.getPlayerBoard();
+    //cout << aiPlayer.getPlayerBoard() << endl << humanPlayer.getPlayerBoard();
     
     aiPlayer.populateBoard();
     humanPlayer.createPlayerBoard();
@@ -66,7 +66,7 @@ int* convertInput(string input, int* idx){
 
     idx1 = input[0] - 'A' + 1;
     idx2 = input[1] - '0';
-
+    cout << "index" << idx1 << idx2 << endl;
     idx[0] = idx1;
     idx[1] = idx2;
 

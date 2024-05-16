@@ -71,12 +71,12 @@ void opponentBoard::clearBoard(){
  * @return bool- false if board contains something at the index, true if it is empty
 */
 bool opponentBoard::indexAvailable(int idx[]){
-    if (boardArray[idx[0]][idx[1]] != '-'){
-        return false;
+    if (boardArray[idx[0]][idx[1]] == '-'){
+        return true;
     }
 
     else {
-        return true;
+        return false;
     }
 }
 

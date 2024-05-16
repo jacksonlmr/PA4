@@ -57,7 +57,7 @@ void Human::createPlayerBoard(){
 
             int* converted = convertInput(rawIndex, processedIndex);
             validInput = pBoard->indexAvailable(boats[i]);
-
+cout << validInput << endl;
             if(validInput == false){
                 cout << "Please enter a valid index and orientation that has not already been used";
             }
