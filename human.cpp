@@ -64,7 +64,8 @@ cout << validInput << endl;
 
             else{
                 boats[i]->setStartIndex(processedIndex);
-                pBoard->addBoatToArray(boats[i]);
+                pBoard->addBoat(boats[i]);
+                cout << *pBoard;
             }
 
         }while(validInput == false);
