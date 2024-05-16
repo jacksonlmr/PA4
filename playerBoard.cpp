@@ -77,7 +77,7 @@ bool playerBoard::indexAvailable(Boat* b){
 
         else{
             for (int i = 1; i < 9; i++){
-                if (boardArray[rowIndex][columnIndex + i] != '-'){
+                if (boardArray[rowIndex + 1][columnIndex + 1 + i] != '-'){
                     returnValue = false;
                 }
             }
@@ -92,7 +92,7 @@ bool playerBoard::indexAvailable(Boat* b){
 
         else{
             for (int i = 1; i < 9; i++){
-                if (boardArray[rowIndex+ i][columnIndex] != '-'){
+                if (boardArray[rowIndex+ i + 1][columnIndex + 1] != '-'){
                     returnValue = false;
                 }
             }
